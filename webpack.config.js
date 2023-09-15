@@ -22,10 +22,13 @@ module.exports = {
       },
     ],
   },
-  // 번들링이 완료된 코드를 출력하는 위치
+  // 번들링이 완료된 결과물에 대한 설정
   output : {
-    filename: "bundle.js", // 출력을 뭘로 할거냐
+    // filename: "bundle.js", // 출력을 뭘로 할거냐
+    filename: "js/[name]-[chunkhash].js", // 번들 파일에 해시추가
+    // 결과물들의 위치
     path: __dirname + "/dist", 
+    clean: true, // 기존 빌드 결과물 삭제(안하면 파일 해시추가한 파일 쌓임)
   },
   plugins: [
     // 번들된 파일을 삽입할 마크업파일을 설정

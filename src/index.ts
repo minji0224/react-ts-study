@@ -16,7 +16,25 @@ import { appName, greet, user } from "./module";
 import metadata from "./module";
 
 
+// 타입 추론 
+const name = "Javascript!!!!!!!!";
+// 타입선언(타입 선언하면 타입 못바꿈)
+let name1 : string;
 
-const name = "Javascript!!!";
-console.log(greet(`${name}-${appName}-${metadata.version}-${metadata.creator}-${user.username}-${user.age}`));
-document.getElementById("root").innerHTML = greet(`${name}-${appName}-${metadata.version}-${metadata.creator}-${user.username}-${user.age}`);
+
+console.log(
+  greet(`${name}-${appName}-
+  ${metadata.version}-${metadata.creator}-
+  ${user.name}-${user.age}`, "unspecifide")
+  );
+
+
+  console.log(user.nickname, user.printInfo);
+  
+
+
+document.getElementById("root").innerHTML = greet(
+  `${name}-${appName}-${metadata.version}-${metadata.creator}-${user.name}-${user.age}-${user.gendor}`
+  );
+
+
