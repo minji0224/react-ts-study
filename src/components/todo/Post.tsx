@@ -57,7 +57,11 @@ const Post = () => {
     
   }
 
-
+  /*
+  이 함수는 
+  PostModifyModal 컴포넌트의 프롭스를??
+  ModifyModal의 수정버튼에 onClick={onConfirm} 이 함수에서 받아온 객체를 분해해서 속성값을 받는 것?
+  */
   const handleModifyModalConfirm = ({index, title, content} : {index: number; title: string; content: string;}) => {
     setPostList(postList.map((item, idx) => {
       if(index === idx) {

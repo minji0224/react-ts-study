@@ -13,9 +13,28 @@
     // jsx: js로 변환했을 때 문법을 처리하는 방법
     // javascript Virtual DOM객체를 HTML처럼 표기하는 방법
     // jsx:react
-    "jsx": "preserve" 
+    "jsx": "preserve",
     // jsx-transpile: React Import를 안해도 되게 하는 방법
     // - 작성할 때의 컴포넌트 코드에 대한 얘기이고 글로벌 수준에서 임포트 해줘야함
     // esbuild-loader쓸 때는 영향을 안받음
+
+
+    // emotion 사용에 필요
+    "moduleResolution": "node",
+
+    "plugins": [
+      {
+        "name": "@styled/typescript-styled-plugin",
+        "lint": {
+          "validProperties": [
+            "label"
+          ]
+        }
+      }
+    ],
+
+
+
+    
   }
 }

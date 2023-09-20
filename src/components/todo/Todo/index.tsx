@@ -1,5 +1,13 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
-import TodoModifyModal from "./TodoModifyModal";
+
+/*
+모듈 가져올 때 
+1차 시도: ./TodoModifyModal.ts/tsx/js/jsx
+2차 시도: 1차 시도: ./TodoModifyModal/index.ts/tsx/js/jsx
+
+*/ 
+import TodoModifyModal from "../TodoModifyModal";
+import { TodoContainer } from "./styled";
 
 interface TodoItem {
   memo: string;
@@ -84,42 +92,49 @@ const Todo = () => {
   }, [todoList]);
 
   return (
-  <div>
-    {/* ref속성에 참조변수 넣기 */}
-    <input placeholder="..할일" ref={inputRef}></input>
-    <button onClick={handleAdd}>추가</button>
-
-    {/* 삼항연산을 쓰면 가독성 많이 떨어져서 그냥 두개로만드는것이 나음 */}
-    {todoList.length === 0 && <p>할 일 목록이 없습니다.</p>}
-    {todoList.length > 0 && (
-      <ul>
-      {/* string[] => <li>[] : 데이터 -> JSX.Element로 변경하는 것 */}
-      {/* key속성: 엘리먼트 변동여부를 추적할 때 사용하는 것 
-          key가 변동되면, 엘리먼트를 다시 새로 만듦 
-          key값을 변동되는 인덱스보다 유일한 idd값을 쓰는게 좋다.       */}
-      {todoList.map((item, index) => (
-        // <li key={index}>{item}</li>    
-        // <li key={index} onClick={()=> {handleRemove(index)}}>{item.memo}</li>    
-        <li key={index} onClick={() => {
-          handleOpenModifyModal(index);
-        }}
-        >
-          {item.memo}</li>   
-      ))}
-    </ul>
+      <TodoContainer>
+        <header>
+          {/* ref속성에 참조변수 넣기 */}
+          <input placeholder="..할일" ref={inputRef}></input>
+          <button onClick={handleAdd}>추가</button>
+        </header>
+    
+        {/* 삼항연산을 쓰면 가독성 많이 떨어져서 그냥 두개로만드는것이 나음 */}
+        {todoList.length === 0 && <p>할 일 목록이 없습니다.</p>}
+        {todoList.length > 0 && (
+          <>
+            <ul>
+            {/* string[] => <li>[] : 데이터 -> JSX.Element로 변경하는 것 */}
+            {/* key속성: 엘리먼트 변동여부를 추적할 때 사용하는 것 
+                key가 변동되면, 엘리먼트를 다시 새로 만듦 
+                key값을 변동되는 인덱스보다 유일한 idd값을 쓰는게 좋다.       */}
+            {todoList.map((item, index) => (
+              // <li key={index}>{item}</li>    
+              // <li key={index} onClick={()=> {handleRemove(index)}}>{item.memo}</li>    
+              <li key={index} onClick={() => {
+                handleOpenModifyModal(index);
+              }}
+              >
+                {item.memo}</li>   
+            ))}
+          </ul>
+          <footer>
+            <data>{todoList.length}</data> 개의 할일
+          </footer>
+        </>  
+      )}
+      {showModifyModal && (
+      <TodoModifyModal 
+        // 상태값을 자식의 속성으로 넘겨줘야 함
+        index={modifyItem.index}
+        memo={modifyItem.memo}
+        // 자식의 이벤트를 처리하는 함수를 속성으로 넘겨줘야 함
+        onConfirm={handleModifyModalConfirm}
+        onCancle={handleModifyModalCancel}
+      /> 
     )}
-
-    {showModifyModal && (
-    <TodoModifyModal 
-      // 상태값을 자식의 속성으로 넘겨줘야 함
-      index={modifyItem.index}
-      memo={modifyItem.memo}
-      // 자식의 이벤트를 처리하는 함수를 속성으로 넘겨줘야 함
-      onConfirm={handleModifyModalConfirm}
-      onCancle={handleModifyModalCancel}
-    />
-   )}
-  </div>);
+    </TodoContainer>
+  );
 };
 
 export default Todo;

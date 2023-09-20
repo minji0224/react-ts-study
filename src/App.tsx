@@ -1,24 +1,31 @@
-import Counter from "./components/Counter";
-import CreatePost from "./components/Post";
-import Layout from "./components/Layout";
-import Todo from "./components/Todo";
-import WelcomeMessage from "./components/WelcomeMessage";
-import Post from "./components/Post";
+import { useState } from "react";
+import Todo from "./components/todo/Todo";
+import ResetStyle from "./styles/reset";
 
 const App = () => {
-  return <>
-    <Counter />
-    <hr />
-    <Todo />
-    <hr />
-    <Layout title="Home Page">
-      {/* children속성을 안쪽 태그에 */}
-      <WelcomeMessage name="민지" />
-      <p>Welcome to our website!</p>
-    </Layout>
-    <hr />
-    <Post />
-  </>;
+
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  const handleChangeTheme = () => {
+    if(theme === "light"){
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+
+
+
+
+  return (
+    <div id="app-theme" className={theme}>
+       {/* 글로벌 스타일을 가장 첫부분에 넣어야함 */}
+      <ResetStyle />
+      <button onClick={handleChangeTheme}>light</button>
+      <Todo />
+    </div>
+  );
 };
 
 export default App;
