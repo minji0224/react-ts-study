@@ -13,6 +13,11 @@ module.exports = {
   // entry부터 시작해서 확자아자가 ts/js인 파일들을 번들링하겠다.
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
+    // 경로에 대한 alias(별칭) 설정
+    // tsconfig에 설정한 소스경로를 웹팩에도(빌드하는 시점) 지정
+    alias: {
+      "@": __dirname + "/src",
+    },
   },
   // 모듈 해석기
   module: {
@@ -66,7 +71,8 @@ module.exports = {
   램디스크처럼 ./dist/index.html, ./dist/bundle.js  
   */ 
   devServer: {
+    historyApiFallback: true,
     static: "./dist",
     open: true,
-  }
+  },
 };

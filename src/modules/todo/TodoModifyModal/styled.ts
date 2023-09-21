@@ -12,12 +12,12 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   width: 300px;
-  padding: 20;
+  padding: 20px;
   background-color: white;
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  gap: 20;
+  gap: 20px;
 `;

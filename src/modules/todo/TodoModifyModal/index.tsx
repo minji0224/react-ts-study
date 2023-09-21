@@ -1,6 +1,6 @@
 import { MutableRefObject, useRef } from "react";
 import { ButtonContainer, Container, Wrapper } from "./styled";
-import { Button } from "../../Button/styles";
+import { Button } from "@/components/Button/styles";
 
 interface TodoModifyModalProps {
   index: number;

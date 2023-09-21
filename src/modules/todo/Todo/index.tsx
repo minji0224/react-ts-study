@@ -6,8 +6,8 @@ import { MutableRefObject, useEffect, useRef, useState } from "react";
 2차 시도: 1차 시도: ./TodoModifyModal/index.ts/tsx/js/jsx
 
 */ 
-import TodoModifyModal from "../TodoModifyModal";
-import { TodoContainer } from "./styled";
+import TodoModifyModal from "@/modules/todo/TodoModifyModal";
+import { TodoContainer } from "@/modules/todo/Todo/styled";
 
 interface TodoItem {
   memo: string;
