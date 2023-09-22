@@ -1,11 +1,20 @@
 import { useNavigate } from "react-router-dom";
+import { useContactsData } from "../data";
+import { useState } from "react";
 
 const ContactList = () => {
 
-  const contacts = [
-    {id: 1, name:"Alice", phone: "010-1234-4567"},
-    {id: 2, name:"Don", phone: "010-6666-4567"},
-  ];
+  const [page, setPage] = useState(0);
+  console.log(`List컴포넌트의 page: ${page}`);
+  /*
+    로그가 2번 찍히는 이유는 
+    컴포넌트가 마운팅될 때 1번 찍히고
+    contactData를 fetcher()로 가져온 다음에 상태가 업데이트 돼서 그 다음 또 1번 찍힘  
+  */ 
+
+  const {contactsData: contacts} = useContactsData(page);
+  console.log(contacts);
+  
 
   const navigate = useNavigate();
 

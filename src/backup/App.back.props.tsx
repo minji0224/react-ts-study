@@ -11,8 +11,8 @@
 
 import react_icon from "./assets/react-icon.png";
 import intro from "./assets/intro.mp4"
-import WelcomeMessage from "./components/WelcomeMessage";
-import Button from "./components/Button";
+import WelcomeMessage from "../components/WelcomeMessage";
+import Button from "../components/Button";
 
 
 // 리액트의 컴포넌트는 함수 : JSX Element를 반환하는 함수

@@ -6,6 +6,7 @@
 */
 
 import { Link, Outlet } from "react-router-dom";
+import { Suspense } from "react";
 
 
 const ContactSidebar = () => {
@@ -19,7 +20,10 @@ const ContactSidebar = () => {
         </ul>
       </aside>
       <section>
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          {/* 중첩된 라우트에서 자식 컴포넌트를 렌더링하기 위한 Outlet */}
+          <Outlet />
+        </Suspense>
       </section>
     </div>
   );

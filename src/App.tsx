@@ -11,24 +11,35 @@ import { lazy } from "react";
    웹팩으로 빌드하면 스크립트 파일(dist)이 나눠짐
 */ 
 
-// const Todo = lazy(() => {
-//   // 0.5초의 지연을 시뮬레이션하기 위해
-//   return new Promise<{
-//     default: React.ComponentType;
-//   }>((resolve) =>
-//     setTimeout(() => {
-//       resolve(import("@/modules/todo/Todo"));
-//     }, 500)
-//   );
-// });
+const Todo = lazy(() => {
+  // 0.5초의 지연을 시뮬레이션하기 위해
+  return new Promise<{
+    default: React.ComponentType;
+  }>((resolve) =>
+    setTimeout(() => {
+      resolve(import("@/modules/todo/Todo"));
+    }, 3000)
+  );
+});
 
-const Todo = lazy (
-  () => import("@/modules/todo/Todo")
-);
+const ContactSidebar = lazy(() => {
+  // 0.5초의 지연을 시뮬레이션하기 위해
+  return new Promise<{
+    default: React.ComponentType;
+  }>((resolve) =>
+    setTimeout(() => {
+      resolve(import("./modules/contacts/ContactSidebar"));
+    }, 3000)
+  );
+});
 
-const ContactSidebar = lazy(
-  () => import("./modules/contacts/ContactSidebar")
-);
+// const Todo = lazy (
+//   () => import("@/modules/todo/Todo")
+// );
+
+// const ContactSidebar = lazy(
+//   () => import("./modules/contacts/ContactSidebar")
+// );
 
 const ContactList = lazy(
   () => import("./modules/contacts/ContactList")
@@ -42,6 +53,9 @@ const ContactForm = lazy(
   () =>  import("./modules/contacts/ContactForm")
 );
 
+const ProfileEdit = lazy(
+  () => import("@/modules/profile/ProfilesEdit")
+)
 
 const App = () => {
   
@@ -58,9 +72,13 @@ const App = () => {
         {/* 컨텐츠 페이지 */}
         {/* index: 해당경로의 기본 화면 */}
         <Route element={<Home />} index/>
+        <Route path="todo" element={<Todo />} index />
 
         {/* 기능 모듈 */}
-        <Route path="todo" element={<Todo />} index />
+        <Route path="/profile/edit" element={<ProfileEdit />}></Route>
+
+
+
 
 
         {/* /contacts */}
