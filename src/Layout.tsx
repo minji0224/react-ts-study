@@ -10,6 +10,7 @@ function Layout () {
   // swr데이터->상태값 : 데이터가 변경되면 컴포넌트가 다시 렌더링된다.
   // const { profileData, mutateProfileData } = useProfileData();
   const { profileData } = useProfileData();
+  
   // 이렇게 이름 변경도 가능
   // const {nickname} = profileData; 
   console.log(profileData);
@@ -37,6 +38,9 @@ function Layout () {
           </li>
           <li>
           <Link to ="/contacts">Contacts</Link>
+          </li>
+          <li>
+            <Link to="/posts">Posts</Link>
           </li>
         </ul>
         

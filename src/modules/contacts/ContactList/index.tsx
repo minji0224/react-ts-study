@@ -12,9 +12,9 @@ const ContactList = () => {
     contactData를 fetcher()로 가져온 다음에 상태가 업데이트 돼서 그 다음 또 1번 찍힘  
   */ 
 
-  const {contactsData: contacts} = useContactsData(page);
+  const {contactsData: contacts, isContactDataValidating} = useContactsData(page);
   console.log(contacts);
-  
+  console.log(`validating: ${isContactDataValidating}`);
 
   const navigate = useNavigate();
 
@@ -25,6 +25,7 @@ const ContactList = () => {
   return (
     <div>
       <h3>Contact List</h3>
+      <button onClick={() => {setPage(page + 1);}}>Next</button>
       <ul>
         {contacts.map((c) => (
         <li 

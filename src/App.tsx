@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route,} from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./Layout";
 import { lazy } from "react";
+import PostList from "./modules/post/PostList";
 // - 정적 import 방식
 // import Todo from "./components/todo/Todo";
 
@@ -75,6 +76,7 @@ const App = () => {
         <Route path="todo" element={<Todo />} index />
 
         {/* 기능 모듈 */}
+        <Route path="posts"element={<PostList />}/>
         <Route path="/profile/edit" element={<ProfileEdit />}></Route>
 
 
