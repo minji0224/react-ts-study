@@ -4,13 +4,17 @@
       "id": 1,
       "memo": "React 스터디"
     }
-   
   ],
   "contacts": [
     {
       "id": 1,
       "name": "Alice",
       "phone": "010-1234-5678"
+    },
+    {
+      "name": "123",
+      "phone": "123",
+      "id": 2
     }
   ]
 }

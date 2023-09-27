@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import Layout from "./Layout";
 import { lazy } from "react";
 import PostList from "./modules/post/PostList";
+import Ex from "./Ex"
+import OrderNotification from "./modules/order/OrderNotification/OrderNotification";
 // - 정적 import 방식
 // import Todo from "./components/todo/Todo";
 
@@ -64,41 +66,50 @@ const App = () => {
 
 
   // 라우팅 처리하는 곳의 가장 최상위에 <BrowserRouter>를 감싸줘야 함.
-  return <BrowserRouter>   
-    <Routes>
+  return (
+    <BrowserRouter>   
+      <OrderNotification />
 
-      <Route path="/" element={<Layout />}>
-
-
-        {/* 컨텐츠 페이지 */}
-        {/* index: 해당경로의 기본 화면 */}
-        <Route element={<Home />} index/>
-        <Route path="todo" element={<Todo />} index />
-
-        {/* 기능 모듈 */}
-        <Route path="posts"element={<PostList />}/>
-        <Route path="/profile/edit" element={<ProfileEdit />}></Route>
-
-
-
-
-
-        {/* /contacts */}
-        <Route path="contacts" element={<ContactSidebar/>}>
+     
+    
+      <Routes>
+  
+        <Route path="/" element={<Layout />}>
+  
+  
+          {/* 컨텐츠 페이지 */}
+          {/* index: 해당경로의 기본 화면 */}
+          <Route element={<Home />} index/>
+          <Route path="todo" element={<Todo />} index />
+  
+          {/* 기능 모듈 */}
+          <Route path="posts"element={<PostList />}/>
+          <Route path="/profile/edit" element={<ProfileEdit />}></Route>
+  
+  
+  
+  
+  
           {/* /contacts */}
-          <Route  element={<ContactList />} index />
-          {/* /contacts/form */}
-          <Route path="form" element={<ContactForm />} />
-          {/* /contacts/detail/:id */}
-          <Route  path="detail/:id" element={<ContactDetail />} />        
+          <Route path="contacts" element={<ContactSidebar/>}>
+            {/* /contacts */}
+            <Route  element={<ContactList />} index />
+            {/* /contacts/form */}
+            <Route path="form" element={<ContactForm />} />
+            {/* /contacts/detail/:id */}
+            <Route  path="detail/:id" element={<ContactDetail />} />        
+          </Route>
+  
+  
+  
+  
         </Route>
+      </Routes>
+  
+      <Ex></Ex>
+    </BrowserRouter>
+  );
 
-
-
-
-      </Route>
-    </Routes>
-  </BrowserRouter>;
 };
 
 export default App;
