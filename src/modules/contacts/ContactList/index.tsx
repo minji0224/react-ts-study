@@ -25,7 +25,7 @@ const ContactList = () => {
   return (
     <div>
       <h3>Contact List</h3>
-      <button onClick={() => {setPage(page + 1);}}>Next</button>
+      <button onClick={() => {setPage(page + 1);}}>페이지버튼</button>
       <ul>
         {contacts.map((c) => (
         <li 

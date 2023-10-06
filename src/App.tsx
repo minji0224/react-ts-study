@@ -68,7 +68,7 @@ const App = () => {
   // 라우팅 처리하는 곳의 가장 최상위에 <BrowserRouter>를 감싸줘야 함.
   return (
     <BrowserRouter>   
-      <OrderNotification />
+      {/* <OrderNotification /> */}
 
      
     

@@ -1,8 +1,12 @@
 {
   "todos": [
     {
-      "id": 1,
-      "memo": "React 스터디"
+      "memo": "React 스터디11",
+      "id": 1
+    },
+    {
+      "memo": "할일 목록 추가",
+      "id": 2
     }
   ],
   "contacts": [
@@ -15,6 +19,11 @@
       "name": "123",
       "phone": "123",
       "id": 2
+    },
+    {
+      "name": "dodo",
+      "phone": "01056",
+      "id": 3
     }
   ]
 }

@@ -11,7 +11,7 @@ const ContactDitail = () => {
   return (
     <div>
       <h3>Contact Detail</h3>
-      <p>{id}</p>
+      <p>url id파라미터 값 {id}</p>
     </div>
   );
 };

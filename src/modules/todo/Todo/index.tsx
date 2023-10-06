@@ -82,6 +82,10 @@ const Todo = () => {
     setShowModifyModal(true);
     // 선택한 데이터 넘겨주기
     setModifyItem({index, memo: todoList[index].memo});
+    console.log(index);
+    console.log(todoList[index].memo);
+    
+    
   };
 
 
